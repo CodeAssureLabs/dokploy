@@ -89,7 +89,7 @@ export const settingsRouter = createTRPCRouter({
 		const settings = await getWebServerSettings();
 		return settings;
 	}),
-	reloadServer: adminProcedure.mutation(async ({ ctx }) => {
+	reloadServer: protectedProcedure.mutation(async ({ ctx }) => {
 		if (IS_CLOUD) {
 			return true;
 		}
